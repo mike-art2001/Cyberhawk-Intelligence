@@ -14,7 +14,7 @@ from firebase_admin import credentials, firestore
 from bs4 import BeautifulSoup
 
 #initialize firestore
-cred = credentials.Certificate('mycyberhawk.json')
+cred = credentials.Certificate('/path to your json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -46,6 +46,7 @@ def validate_login():
         cursor = connection.cursor()
 
         # Check if the entered username exists and the password is correct
+        # use you sql table name in this case i have a table mysystemusers
         query = "SELECT password FROM mysystemusers WHERE username = %s"
         cursor.execute(query, (entered_username,))
         result = cursor.fetchone()
@@ -224,7 +225,7 @@ def validate_login():
                         return
 
 
-                    api_key = '487c951a20c73210228d479158861560229a7ba4deb1bf69c8ea3f09d2b219f6'
+                    api_key = 'provide your virus total api key'
                     url_scan = 'https://www.virustotal.com/vtapi/v2/file/scan'
                     url_report = 'https://www.virustotal.com/vtapi/v2/file/report'
 
@@ -288,7 +289,7 @@ def validate_login():
                         return
 
                     # Replace 'YOUR_API_KEY' with your actual VirusTotal API key
-                    api_key = '487c951a20c73210228d479158861560229a7ba4deb1bf69c8ea3f09d2b219f6'
+                    api_key = 'provide your virus total api key'
                     url_scan = 'https://www.virustotal.com/vtapi/v2/url/scan'
 
                     params = {'apikey': api_key, 'url': url_to_scan}
@@ -335,7 +336,7 @@ def validate_login():
                         return
 
                     # Replace 'YOUR_API_KEY' with your actual VirusTotal API key
-                    api_key = '487c951a20c73210228d479158861560229a7ba4deb1bf69c8ea3f09d2b219f6'
+                    api_key = 'provide your virus total api key'
                     url_search = 'https://www.virustotal.com/vtapi/v2/domain/report'
 
                     params = {'apikey': api_key, 'domain': query}
